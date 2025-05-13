@@ -13,8 +13,10 @@ contract Swap is Test {
     uint256 constant INITIAL_BALANCE = 10_000e18;
 
     uint256[] As = [uint256(100), 500, 2000];
-    uint256[] prices = [0.9e18, 1e18, 1.1e18];
-    uint256[] dxs = [0.01e18, 0.1e18, 0.5e18, 1e18, 5e18, 10e18];
+      // Updated prices to reflect NGN/USD exchange rates (1500, 1600, 1700 NGN per USD)
+        uint256[] prices = [1.5e18, 1.6e18, 1.7e18];
+      uint256[] dxs = [1_000e18, 4_000e18, 2_000e18, 1_000e18, 2_000e18, 3_000e18];
+   // uint256[] dxs = [0.01e18, 0.1e18, 0.5e18, 1e18, 5e18, 10e18];
 
     function setUp() public {
         oracle = new MockOracle();
@@ -23,7 +25,7 @@ contract Swap is Test {
 
     function testCurvePoints() public {
         console.logString("dx,price,A,D,xp0,xp1,y"); // CSV header
-        uint256[2] memory balances = [uint256(10e18), uint256(10e18)];
+        uint256[2] memory balances = [uint256(100_000e18), uint256(100_000e18)];
 
         for (uint256 i = 0; i < As.length; i++) {
             pool.setA(As[i]);

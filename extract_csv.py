@@ -13,7 +13,7 @@ with open(input_file, "r") as infile, open(output_file, "w") as outfile:
 
 print(f"✅ CSV saved to {output_file}")
 
-Parse and group by A
+# Parse and group by A
 data_by_A = defaultdict(list)
 
 with open(output_file) as infile:
